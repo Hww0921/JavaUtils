@@ -13,7 +13,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
-    <lombok.version>1.18.24</lombok.version>
+    <lombok.version>1.18.20</lombok.version>
   </properties>
  <dependencies>
    <!--  Apache BeanUtils  Apache PropertyUtils-->
@@ -82,7 +82,6 @@
      <groupId>org.projectlombok</groupId>
      <artifactId>lombok</artifactId>
      <version>${lombok.version}</version>
-
      <scope>provided</scope>
    </dependency>
 
@@ -91,6 +90,7 @@
      <groupId>org.mapstruct</groupId>
      <artifactId>mapstruct</artifactId>
      <version>${org.mapstruct.version}</version>
+     <scope>provided</scope>
    </dependency>
 
  </dependencies>
@@ -104,18 +104,22 @@
           <source>1.8</source>
           <target>1.8</target>
           <annotationProcessorPaths>
+            <!-- mapstruct-processor 必须在lombok 之后 -->
+
+            <!-- Lombok 在编译时会通过这个插件生成代码 -->
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>${lombok.version}</version>
+            </path>
+
             <!-- MapStruct 在编译时会通过这个插件生成代码 -->
             <path>
               <groupId>org.mapstruct</groupId>
               <artifactId>mapstruct-processor</artifactId>
               <version>${org.mapstruct.version}</version>
             </path>
-            <!-- Lombok 在编译时会通过这个插件生成代码 -->
-            <path>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </path>
+
           </annotationProcessorPaths>
         </configuration>
       </plugin>
