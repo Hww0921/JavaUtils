@@ -10,6 +10,5 @@ import org.mapstruct.factory.Mappers;
 public interface PersonConverter {
     PersonConverter INSTANCE = Mappers.getMapper(PersonConverter.class);
 
-    @Mapping(source = "name",target = "username")
     PersonDTO do2dto(PersonDO personDO);
 }
