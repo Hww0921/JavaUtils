@@ -1,0 +1,6 @@
+beanUtils\entity\PersonDO.class
+beanUtils\mapstruct\PersonConverterImpl.class
+beanUtils\otherBeanUtils\BeanCopyCompare.class
+beanUtils\test\BeanUtilsTest.class
+beanUtils\entity\PersonDTO.class
+beanUtils\mapstruct\PersonConverter.class
